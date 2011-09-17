@@ -1,9 +1,6 @@
-WORD=$1
-say "spell the word $WORD"
-read BOX
-ANSWER=$(expr "$WORD" '=' "$BOX")
-if [ $ANSWER = 1 ] ; then echo "Correct"; say "correct"; else echo "Wrong"; say "wrong"; fi
-echo "Correct Spelling is : $WORD"
-echo "Press Enter For Next Word"
-read
+FILE=$1
+if  [ "$FILE" '='  "" ]; then echo "Usage : spell   filename";  exit 0; fi
 
+sed 's/^/SpellWord /g' $FILE > /tmp/$FILE.sh ;
+chmod +x /tmp/$FILE.sh ;
+/tmp/$FILE.sh ;

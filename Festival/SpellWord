@@ -1,0 +1,16 @@
+WORD=$1
+ask()
+{
+	echo "spell the word $WORD" |  festival --tts;
+	echo "For Repeat Type r Then Press Enter"
+	echo -n ": "
+	read BOX
+	if [ "$BOX" '=' "r" ] ; then ask ;  fi
+
+}
+	ask
+	ANSWER=$(expr "$WORD" '=' "$BOX")
+	if [ $ANSWER = 1 ] ; then echo "Correct"; echo "correct" |  festival --tts ; else echo "InCorrect"; echo "incorrect" |  festival --tts ; fi
+	echo "Correct Spelling is : $WORD"
+	echo "Press Enter For Next Word"
+	read
