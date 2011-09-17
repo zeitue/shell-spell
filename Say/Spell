@@ -1,0 +1,9 @@
+WORD=$1
+say "spell the word $WORD"
+read BOX
+ANSWER=$(expr "$WORD" '=' "$BOX")
+if [ $ANSWER = 1 ] ; then echo "Correct"; say "correct"; else echo "Wrong"; say "wrong"; fi
+echo "Correct Spelling is : $WORD"
+echo "Press Enter For Next Word"
+read
+

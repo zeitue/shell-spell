@@ -1,0 +1,9 @@
+WORD=$1
+echo "spell the word $WORD" |  festival --tts;
+read BOX
+ANSWER=$(expr "$WORD" '=' "$BOX")
+if [ $ANSWER = 1 ] ; then echo "Correct"; echo "correct" |  festival --tts; else echo "Wrong"; echo "wrong" |  festival --tts; fi
+echo "Correct Spelling is : $WORD"
+echo "Press Enter For Next Word"
+read
+
